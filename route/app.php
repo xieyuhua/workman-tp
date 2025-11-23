@@ -10,8 +10,23 @@
 // +----------------------------------------------------------------------
 use think\facade\Route;
 
-Route::get('think', function () {
-    return 'hello,ThinkPHP8!';
+//  0.0.0.0:8486/erpapi/hello/452454
+Route::group('erpapi', function() {
+  // --- erp商品资料更新
+//   Route::post('updateSkuInfo', 'Goods/updateSkuInfo');
+  Route::get('hello/:name', 'index/hello');
 });
 
-Route::get('hello/:name', 'index/hello');
+// 0.0.0.0:8486/thinks/demo
+Route::get('thinks/demo', function () {
+    return 'hello,ThinkPHP888!';
+});
+
+// hello
+Route::get('hello/:name', 'shop/index/hello');
+
+
+
+
+
+

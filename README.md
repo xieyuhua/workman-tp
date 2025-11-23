@@ -50,12 +50,15 @@ php     22342  root   10u  IPv4 86354783      0t0  TCP VM-16-5-centos:33158->VM-
 
 ~~~
 
+
 启动服务
 
 ~~~
 cd tp
-php think run
+php start.php worker
 ~~~
+
+
 
 然后就可以在浏览器中访问
 

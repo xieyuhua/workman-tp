@@ -11,10 +11,11 @@ class Index extends BaseController
     {
         $select =   Db::table('task')->select()->ToArray();
         print_r($select);
+        var_dump(__CLASS__);
         return time();
     }
 
-    public function hello($name = 'ThinkPHP8')
+    public function hello($name = 'ThinkPHP6666')
     {
         return 'hello,' . $name;
     }
