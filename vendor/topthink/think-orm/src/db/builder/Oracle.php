@@ -104,7 +104,7 @@ class Oracle extends Builder
                 $table = $alias[$table];
             }
         }
-        // 
+        // ["f_get_classcode ('36', d .wareid)", 'in', ['3601','3602','3603','3604','3605','3606']],
         if ($strict && !preg_match('/^[\w\.\*]+$/', $key)) {
             // throw new Exception('not support data:' . $key);
         }

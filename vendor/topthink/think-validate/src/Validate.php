@@ -400,7 +400,20 @@ class Validate
     public function rule(string | array $name, $rule = '', string | array $msg = [])
     {
         if (is_array($name)) {
-            $this->rule = $name + $this->rule;
+            //组合判断
+            $new_value = [];
+            foreach ($name as $k => $v) {
+                $keys = preg_split('/[\||,]/', $k);
+                if(count($keys)>1){
+                    foreach ($keys as  $kk) {
+                        $new_value[$kk] = $v;
+                    }
+                }else{
+                    $new_value[$k] = $v;
+                }
+            }
+            $this->rule = $new_value + $this->rule;
+            // $this->rule = $name + $this->rule;
             if (is_array($rule)) {
                 $this->field = array_merge($this->field, $rule);
             }
