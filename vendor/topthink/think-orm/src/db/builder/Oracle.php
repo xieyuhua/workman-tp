@@ -104,9 +104,9 @@ class Oracle extends Builder
                 $table = $alias[$table];
             }
         }
-
+        // 
         if ($strict && !preg_match('/^[\w\.\*]+$/', $key)) {
-            throw new Exception('not support data:' . $key);
+            // throw new Exception('not support data:' . $key);
         }
 
         if ('*' != $key && !preg_match('/[,\'\"\*\(\)\[.\s]/', $key)) {
@@ -117,6 +117,9 @@ class Oracle extends Builder
             $key = '"' . $table . '".' . $key;
         }
 
+        // oracle 字段和表名 转 大写
+        $key = strtoupper($key);
+        
         return $key;
     }
 

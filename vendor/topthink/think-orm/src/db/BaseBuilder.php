@@ -858,9 +858,13 @@ abstract class BaseBuilder
 
         foreach ($dataSet as $k => $data) {
             $data = $this->parseData($query, $data, $allowFields, $bind);
-
-            $values[] = 'SELECT ' . implode(',', array_values($data));
-
+            // 新增oracle判断
+            if(str_contains(strtolower($this->connection->getConfig('type')), 'oracle')){
+                $values[] = 'SELECT ' . implode(',', array_values($data)) .' FROM dual';
+                var_dump( $values);
+            }else{
+                $values[] = 'SELECT ' . implode(',', array_values($data));
+            }
             if (!isset($insertFields)) {
                 $insertFields = array_keys($data);
             }
